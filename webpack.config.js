@@ -9,11 +9,6 @@ module.exports = {
         filename: 'app.bundle.js'
     },
     
-    plugins: [
-        new webpack.ProvidePlugin({
-            "React": "react",
-        }),
-    ],
     module: {
         rules: [
             {
@@ -23,7 +18,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    { loader: 'style-loader'},
+                    { loader: 'style-loader' },
                     {
                         loader: 'css-loader',
                         options: {
