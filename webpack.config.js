@@ -8,17 +8,22 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'app.bundle.js'
     },
-    
+    //bez tego nie widzi reacta - nie dołącza reacta do pliku app.bundle.js
+    plugins: [
+        new webpack.ProvidePlugin({
+            "React": "react",
+        }),
+    ],
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.js$/,
                 loader: "babel-loader"
             },
             {
                 test: /\.css$/,
-                use: [
-                    { loader: 'style-loader' },
+                use: [{
+                        loader: 'style-loader'
+                    },
                     {
                         loader: 'css-loader',
                         options: {
